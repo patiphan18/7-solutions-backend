@@ -1,0 +1,13 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - whitespace
+    - wsl_v5
+  exclusions:
+    generated: strict
+
+formatters:
+  enable:
+    - gofmt

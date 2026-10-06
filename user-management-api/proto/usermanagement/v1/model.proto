@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package usermanagement.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "user-management-api/pkg/proto/usermanagement/v1";
+
+message User {
+	string role = 5;
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  google.protobuf.Timestamp created_at = 4;
+}

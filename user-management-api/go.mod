@@ -1,0 +1,25 @@
+module user-management-api
+
+go 1.26.7
+
+require (
+	github.com/golang-jwt/jwt/v5 v5.3.1
+	go.mongodb.org/mongo-driver/v2 v2.5.0
+	golang.org/x/crypto v0.57.0
+	google.golang.org/genproto/googleapis/api v0.0.0-20260928230214-8a89bd6388cc
+	google.golang.org/grpc v1.83.2
+	google.golang.org/protobuf v1.36.12
+)
+
+require (
+	github.com/klauspost/compress v1.20.1 // indirect
+	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
+	github.com/xdg-go/scram v1.2.0 // indirect
+	github.com/xdg-go/stringprep v1.0.4 // indirect
+	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sync v0.23.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/text v0.42.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459 // indirect
+)

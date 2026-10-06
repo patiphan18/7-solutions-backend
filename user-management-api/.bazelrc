@@ -1,0 +1,4 @@
+test --test_output=errors
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+build --@protobuf//bazel/toolchains:prefer_prebuilt_protoc

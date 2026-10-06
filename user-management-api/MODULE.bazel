@@ -1,0 +1,15 @@
+module(
+    name = "user_management_api",
+    version = "0.0.0",
+)
+
+bazel_dep(name = "rules_go", version = "0.60.0")
+bazel_dep(name = "protobuf", version = "33.6")
+bazel_dep(name = "rules_proto_grpc_go", version = "5.8.0")
+bazel_dep(name = "rules_proto_grpc_buf", version = "5.8.0")
+bazel_dep(name = "rules_proto_grpc_grpc_gateway", version = "5.8.0")
+bazel_dep(name = "grpc_ecosystem_grpc_gateway", version = "2.27.6")
+bazel_dep(name = "googleapis", version = "0.0.0-20260223-edfe7983")
+
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.from_file(go_mod = "//:go.mod")

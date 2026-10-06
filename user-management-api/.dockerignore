@@ -1,0 +1,6 @@
+.env
+.git
+.cache
+*.exe
+coverage.out
+bazel-*

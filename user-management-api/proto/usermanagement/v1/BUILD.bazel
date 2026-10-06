@@ -1,0 +1,49 @@
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
+load("@rules_proto_grpc_buf//:defs.bzl", "buf_proto_lint_test")
+load("@rules_proto_grpc_go//:defs.bzl", "go_grpc_compile", "go_proto_compile")
+load("@rules_proto_grpc_grpc_gateway//:defs.bzl", "gateway_openapiv2_compile")
+
+buf_proto_lint_test(
+    name = "lint",
+    protos = [":model_proto", ":user_service_proto"],
+    use_rules = ["DEFAULT"],
+)
+
+go_proto_compile(
+    name = "pb",
+    output_mode = "NO_PREFIX",
+    prefix_path = "gofile",
+    protos = [":model_proto"],
+)
+
+go_grpc_compile(
+    name = "grpc",
+    output_mode = "NO_PREFIX",
+    prefix_path = "gofile",
+    protos = [":user_service_proto"],
+)
+
+gateway_openapiv2_compile(
+    name = "openapiv2",
+    extra_protoc_args = ["--openapiv2_plugin_opt=openapi_naming_strategy=fqn"],
+    protos = [":user_service_proto"],
+)
+
+proto_library(
+    name = "model_proto",
+    srcs = ["model.proto"],
+    strip_import_prefix = "/proto",
+    visibility = ["//visibility:public"],
+    deps = ["@protobuf//:timestamp_proto"],
+)
+
+proto_library(
+    name = "user_service_proto",
+    srcs = ["user_service.proto"],
+    strip_import_prefix = "/proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":model_proto",
+        "@googleapis//google/api:annotations_proto",
+    ],
+)
